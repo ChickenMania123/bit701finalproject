@@ -33,19 +33,6 @@ dependencies {
 	//testImplementation 'org.springframework.security:spring-security-test'
 }
 
- node {
-   version = '18.16.0'
-   npmVersion = '9.5.1'
-   download = true
- }
- 
-task appNpmInstall(type: NpmTask) {
-  dependsOn "npmSetup"
-  description = "Installs dependencies from package.json"
-  workingDir = file("${projectDir}/src/main/resources/static");
-  args = ["install"]
-}
-
 tasks.named('test') {
 	useJUnitPlatform()
 }
@@ -65,7 +52,7 @@ sourceSets {
 
 processResources {
   dependsOn "copyReactFile"
-  dependsOn "appNpmInstall"
+  //dependsOn "appNpmInstall"
 }
 
 
