@@ -38,6 +38,13 @@ dependencies {
    npmVersion = '9.5.1'
    download = true
  }
+ 
+task appNpmInstall(type: NpmTask) {
+  dependsOn "npmSetup"
+  description = "Installs dependencies from package.json"
+  workingDir = file("${projectDir}/src/main/resources/static");
+  args = ["install"]
+}
 
 tasks.named('test') {
 	useJUnitPlatform()
