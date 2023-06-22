@@ -33,6 +33,12 @@ dependencies {
 	//testImplementation 'org.springframework.security:spring-security-test'
 }
 
+ node {
+   version = '18.16.0'
+   npmVersion = '9.5.1'
+   download = true
+ }
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
