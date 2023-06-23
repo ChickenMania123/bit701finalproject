@@ -8,10 +8,10 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan({"data.*","naver.cloud"})
 @MapperScan({"data.mapper"})
-public class ReacBootProjectApplication {
+public class ReactBootProjectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReacBootProjectApplication.class, args);
+		SpringApplication.run(ReactBootProjectApplication.class, args);
 	}
 
 }
