@@ -15,11 +15,26 @@ function Menu(props) {
                     <NavLink to={"/member/list"}>회원목록</NavLink>
                 </li>
                 <li>
-                    <NavLink to={"/board/list"}>게시판</NavLink>
+                    <NavLink to={"/board/list/1"}>게시판</NavLink>
                 </li>
-                <li>
+                {
+                    sessionStorage.loginok==null || sessionStorage.loginok==='no'?
+                    <li>
                     <NavLink to={"/login"}>로그인</NavLink>
-                </li>
+                    </li>:
+                    <div>
+                        <li style={{width:'250px',backgroundColor:'darkcyan',color:'white',cursor:'pointer'}}
+                        onClick={()=>{
+                            sessionStorage.removeItem("loginok");
+                            sessionStorage.removeItem("myid");
+                            sessionStorage.removeItem("myname");
+                            window.location.reload();//새로고침
+                        }}>로그아웃
+                            &nbsp;&nbsp;&nbsp;
+                        <b style={{color:'yellow'}}>{sessionStorage.myname}({sessionStorage.myid})님</b>    
+                        </li>
+                    </div>
+                }
             </ul>
         </div>
     );
